@@ -12,10 +12,10 @@ class CmdVelToThrusters(Node):
         super().__init__('cmd_vel_to_thrusters')
 
         self.vehicle_name = self.declare_parameter('vehicle_name', 'bluerov2').value
-        self.max_command = float(self.declare_parameter('max_command', 0.65).value)
-        self.surge_gain = float(self.declare_parameter('surge_gain', 0.70).value)
-        self.sway_gain = float(self.declare_parameter('sway_gain', 0.70).value)
-        self.heave_gain = float(self.declare_parameter('heave_gain', 0.70).value)
+        self.max_command = float(self.declare_parameter('max_command', 0.85).value)
+        self.surge_gain = float(self.declare_parameter('surge_gain', 1.00).value)
+        self.sway_gain = float(self.declare_parameter('sway_gain', 1.00).value)
+        self.heave_gain = float(self.declare_parameter('heave_gain', 1.00).value)
         self.yaw_gain = float(self.declare_parameter('yaw_gain', 0.45).value)
         self.thruster_scale = list(self.declare_parameter('thruster_scale', [1.0] * 8).value)
         self.thruster_trim = list(self.declare_parameter('thruster_trim', [0.0] * 8).value)
@@ -50,26 +50,34 @@ class CmdVelToThrusters(Node):
         heave = self.heave_gain * msg.linear.z
         yaw = self.yaw_gain * msg.angular.z
 
+        # Empirical mapping for this imported BlueROV2 Stonefish model:
+        # x  -> front pair opposite to back pair
+        # y  -> was previously acting as yaw, so swap basis
+        # yaw-> was previously acting as sway, so swap basis
+        # z  -> keep inverted so positive z goes up
+
         raw = [
-            surge - sway - yaw,
-            surge + sway + yaw,
-            surge + sway - yaw,
-            surge - sway + yaw,
-            heave,
-            heave,
-            heave,
-            heave,
+            surge + sway + yaw,    # FrontRight
+            surge - sway - yaw,    # FrontLeft
+            -surge + sway - yaw,   # BackRight
+            -surge - sway + yaw,   # BackLeft
+            -heave,                # DiveFrontRight
+            -heave,                # DiveFrontLeft
+            -heave,                # DiveBackRight
+            -heave,                # DiveBackLeft
         ]
 
         normalized = self._normalize(raw)
         commanded = [
-            self._clip(self.thruster_scale[i] * normalized[i] + self.thruster_trim[i], self.max_command)
+            self._clip(
+                self.thruster_scale[i] * normalized[i] + self.thruster_trim[i],
+                self.max_command
+            )
             for i in range(8)
         ]
 
         self.publisher.publish(Float64MultiArray(data=commanded))
-
-
+        
 def main(args=None) -> None:
     rclpy.init(args=args)
     node = CmdVelToThrusters()

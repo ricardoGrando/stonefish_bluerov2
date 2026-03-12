@@ -43,7 +43,7 @@
                 <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
                 <material name="Neutral"/>
                 <look name="None"/>
-                <mass value="0.025"/>
+                <mass value="0.18"/>
                 <compound_transform rpy="0.0 0.0 0.0" xyz="-0.1 -0.1 0.0"/>
             </internal_part>
 
@@ -52,7 +52,7 @@
                 <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
                 <material name="Neutral"/>
                 <look name="None"/>
-                <mass value="0.025"/>
+                <mass value="0.18"/>
                 <compound_transform rpy="0.0 0.0 0.0" xyz="-0.1 0.1 0.0"/>
             </internal_part>
 
@@ -61,7 +61,7 @@
                 <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
                 <material name="Neutral"/>
                 <look name="None"/>
-                <mass value="0.025"/>
+                <mass value="0.18"/>
                 <compound_transform rpy="0.0 0.0 0.0" xyz="0.09 -0.1 0.0"/>
             </internal_part>
 
@@ -70,7 +70,7 @@
                 <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
                 <material name="Neutral"/>
                 <look name="None"/>
-                <mass value="0.025"/>
+                <mass value="0.18"/>
                 <compound_transform rpy="0.0 0.0 0.0" xyz="0.09 0.1 0.0"/>
             </internal_part>
 
