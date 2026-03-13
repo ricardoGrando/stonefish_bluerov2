@@ -132,7 +132,7 @@
 
     <include file="$(find stonefish_bluerov2)/scenarios/bluerov2_ros2.scn">
         <arg name="vehicle_name" value="bluerov2"/>
-        <arg name="position" value="0.0 0.0 2.5"/>
+        <arg name="position" value="0.0 0.0 0.0"/>
         <arg name="orientation" value="0.0 0.0 0.0"/>
     </include>
 </scenario>

@@ -109,7 +109,7 @@
             <watchdog timeout="1.0"/>
             <rotor_dynamics type="zero_order"/>
             <thrust_model type="fluid_dynamics">
-                <thrust_coeff forward="0.167" reverse="0.167"/>
+                <thrust_coeff forward="0.50" reverse="0.50"/>
                 <torque_coeff value="0.016"/>
             </thrust_model>
 <propeller diameter="0.076" right="true">
@@ -126,7 +126,7 @@
             <watchdog timeout="1.0"/>
             <rotor_dynamics type="zero_order"/>
             <thrust_model type="fluid_dynamics">
-                <thrust_coeff forward="0.167" reverse="0.167"/>
+                <thrust_coeff forward="0.50" reverse="0.50"/>
                 <torque_coeff value="0.016"/>
             </thrust_model>
 <propeller diameter="0.076" right="true">
@@ -143,7 +143,7 @@
             <watchdog timeout="1.0"/>
             <rotor_dynamics type="zero_order"/>
             <thrust_model type="fluid_dynamics">
-                <thrust_coeff forward="0.167" reverse="0.167"/>
+                <thrust_coeff forward="0.50" reverse="0.50"/>
                 <torque_coeff value="0.016"/>
             </thrust_model>
 <propeller diameter="0.076" right="false">
@@ -160,7 +160,7 @@
             <watchdog timeout="1.0"/>
             <rotor_dynamics type="zero_order"/>
             <thrust_model type="fluid_dynamics">
-                <thrust_coeff forward="0.167" reverse="0.167"/>
+                <thrust_coeff forward="0.50" reverse="0.50"/>
                 <torque_coeff value="0.016"/>
             </thrust_model>
 <propeller diameter="0.076" right="false">

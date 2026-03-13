@@ -12,8 +12,8 @@ class CmdVelToThrusters(Node):
         super().__init__('cmd_vel_to_thrusters')
 
         self.vehicle_name = self.declare_parameter('vehicle_name', 'bluerov2').value
-        self.max_command = float(self.declare_parameter('max_command', 0.85).value)
-        self.surge_gain = float(self.declare_parameter('surge_gain', 1.00).value)
+        self.max_command = float(self.declare_parameter('max_command', 1.0).value)
+        self.surge_gain = float(self.declare_parameter('surge_gain', 2.5).value)
         self.sway_gain = float(self.declare_parameter('sway_gain', 1.00).value)
         self.heave_gain = float(self.declare_parameter('heave_gain', 1.00).value)
         self.yaw_gain = float(self.declare_parameter('yaw_gain', 0.45).value)
@@ -40,12 +40,10 @@ class CmdVelToThrusters(Node):
         return max(-limit, min(limit, value))
 
     def _normalize(self, values: List[float]) -> List[float]:
-        peak = max(1.0, max(abs(v) for v in values))
-        scaled = [v / peak for v in values]
-        return [self._clip(v, self.max_command) for v in scaled]
+        return [self._clip(v, self.max_command) for v in values]
 
     def cmd_callback(self, msg: Twist) -> None:
-        surge = self.surge_gain * msg.linear.x
+        surge = -self.surge_gain * msg.linear.x
         sway = self.sway_gain * msg.linear.y
         heave = self.heave_gain * msg.linear.z
         yaw = self.yaw_gain * msg.angular.z
