@@ -13,7 +13,7 @@ class CmdVelToThrusters(Node):
 
         self.vehicle_name = self.declare_parameter('vehicle_name', 'bluerov2').value
         self.max_command = float(self.declare_parameter('max_command', 1.0).value)
-        self.surge_gain = float(self.declare_parameter('surge_gain', 2.5).value)
+        self.surge_gain = float(self.declare_parameter('surge_gain', 0.8).value)
         self.sway_gain = float(self.declare_parameter('sway_gain', 1.00).value)
         self.heave_gain = float(self.declare_parameter('heave_gain', 1.00).value)
         self.yaw_gain = float(self.declare_parameter('yaw_gain', 0.45).value)
