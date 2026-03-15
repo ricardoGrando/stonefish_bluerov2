@@ -13,9 +13,9 @@ class CmdVelToThrusters(Node):
 
         self.vehicle_name = self.declare_parameter('vehicle_name', 'bluerov2').value
         self.max_command = float(self.declare_parameter('max_command', 1.0).value)
-        self.surge_gain = float(self.declare_parameter('surge_gain', 0.8).value)
-        self.sway_gain = float(self.declare_parameter('sway_gain', 1.00).value)
-        self.heave_gain = float(self.declare_parameter('heave_gain', 1.00).value)
+        self.surge_gain = float(self.declare_parameter('surge_gain', 1.2).value)
+        self.sway_gain = float(self.declare_parameter('sway_gain', 1.35).value)
+        self.heave_gain = float(self.declare_parameter('heave_gain', 2.0).value)
         self.yaw_gain = float(self.declare_parameter('yaw_gain', 0.45).value)
         self.thruster_scale = list(self.declare_parameter('thruster_scale', [1.0] * 8).value)
         self.thruster_trim = list(self.declare_parameter('thruster_trim', [0.0] * 8).value)
@@ -45,7 +45,7 @@ class CmdVelToThrusters(Node):
     def cmd_callback(self, msg: Twist) -> None:
         surge = -self.surge_gain * msg.linear.x
         sway = self.sway_gain * msg.linear.y
-        heave = self.heave_gain * msg.linear.z
+        heave = -self.heave_gain * msg.linear.z
         yaw = self.yaw_gain * msg.angular.z
 
         # Empirical mapping for this imported BlueROV2 Stonefish model:
