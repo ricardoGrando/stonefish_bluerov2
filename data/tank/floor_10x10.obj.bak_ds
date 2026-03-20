@@ -1,4 +1,4 @@
-o floor_11p2_thick_double_sided
+o floor_11p2_thick
 v -5.6 -5.6 -0.2
 v  5.6 -5.6 -0.2
 v  5.6  5.6 -0.2
@@ -7,19 +7,9 @@ v -5.6 -5.6  0.2
 v  5.6 -5.6  0.2
 v  5.6  5.6  0.2
 v -5.6  5.6  0.2
-
-# outside
 f 1 2 3 4
 f 5 8 7 6
 f 1 5 6 2
 f 2 6 7 3
 f 3 7 8 4
 f 4 8 5 1
-
-# inside (reversed winding)
-f 4 3 2 1
-f 6 7 8 5
-f 2 6 5 1
-f 3 7 6 2
-f 4 8 7 3
-f 1 5 8 4

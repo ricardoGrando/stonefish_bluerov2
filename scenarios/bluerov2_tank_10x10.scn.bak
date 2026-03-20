@@ -59,7 +59,7 @@
         </visual>
         <material name="Rock"/>
         <look name="tank_floor"/>
-        <world_transform rpy="0.0 0.0 0.0" xyz="0.0 0.0 4.2"/>
+        <world_transform rpy="0.0 0.0 0.0" xyz="0.0 0.0 4.05"/>
     </static>
 
     <static name="TankWallNorth" type="model">
@@ -73,7 +73,7 @@
         </visual>
         <material name="Rock"/>
         <look name="tank_wall"/>
-        <world_transform rpy="0.0 0.0 0.0" xyz="0.0 5.3 0.0"/>
+        <world_transform rpy="0.0 0.0 0.0" xyz="0.0 5.0 0.0"/>
     </static>
 
     <static name="TankWallSouth" type="model">
@@ -87,7 +87,7 @@
         </visual>
         <material name="Rock"/>
         <look name="tank_wall"/>
-        <world_transform rpy="0.0 0.0 0.0" xyz="0.0 -5.3 0.0"/>
+        <world_transform rpy="0.0 0.0 0.0" xyz="0.0 -5.0 0.0"/>
     </static>
 
     <static name="TankWallEast" type="model">
@@ -101,7 +101,7 @@
         </visual>
         <material name="Rock"/>
         <look name="tank_wall"/>
-        <world_transform rpy="0.0 0.0 1.5707963268" xyz="5.3 0.0 0.0"/>
+        <world_transform rpy="0.0 0.0 1.5707963268" xyz="5.0 0.0 0.0"/>
     </static>
 
     <static name="TankWallWest" type="model">
@@ -115,7 +115,7 @@
         </visual>
         <material name="Rock"/>
         <look name="tank_wall"/>
-        <world_transform rpy="0.0 0.0 1.5707963268" xyz="-5.3 0.0 0.0"/>
+        <world_transform rpy="0.0 0.0 1.5707963268" xyz="-5.0 0.0 0.0"/>
     </static>
 
     <light name="TankLight0">
